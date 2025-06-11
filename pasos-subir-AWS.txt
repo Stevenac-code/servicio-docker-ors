@@ -1,0 +1,7 @@
+docker build -t vrp:ORSV1 .
+docker tag vrp:ORSV1 440427578056.dkr.ecr.us-east-1.amazonaws.com/automatic/vrp:ORSV1
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 440427578056.dkr.ecr.us-east-1.amazonaws.com
+docker push 440427578056.dkr.ecr.us-east-1.amazonaws.com/automatic/vrp:ORSV1
+
+http://localhost:8082/ors/v2/health
+http://13.221.50.188 :8082/ors/v2/health
