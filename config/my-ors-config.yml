@@ -21,7 +21,7 @@ ors:
         enabled: true
   endpoints:
     matrix:
-      maximum_routes: 500000 # <-- ¡Asegúrate de que esté aquí!
+      maximum_routes: 1000000000 # <-- ¡Asegúrate de que esté aquí!
       maximum_visited_nodes: 1000000000
 ################################################################################
 ### Configuration file for openrouteservice. For a description please visit: ###
