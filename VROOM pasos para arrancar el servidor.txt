@@ -1,0 +1,15 @@
+------------------------------------------------------------------------------------------
+docker network create vroom-net
+
+
+
+docker stop osrm
+docker rm osrm
+docker run -d --name osrm --network vroom-net -p 5000:5000 -v "C:\Users\steven.acosta\Desktop\Distance Matrix\osrm-data:/data" osrm/osrm-backend osrm-routed --algorithm mld --max-table-size 10000 --max-viaroute-size 10000 --max-trip-size 10000 --max-matching-size 10000 --max-nearest-size 10000 /data/colombia-latest.osrm
+
+
+docker stop vroom
+docker rm vroom
+docker run -dt --name vroom --network vroom-net -p 3000:3000 -v "C:\Users\steven.acosta\Desktop\Distance Matrix\vroom-docker\conf:/conf" -e VROOM_ROUTER=osrm ghcr.io/vroom-project/vroom-docker:v1.14.0
+
+---------------------------------------------------------------------------------------------
